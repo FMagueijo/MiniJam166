@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum EarthState { Healthy = 0, Unhealthy = 1, Dying = 2, Dead = 3 }
+public enum EarthState : int { Healthy = 0, Unhealthy = 1, Dying = 2, Dead = 3 }
 
 public class Earth : MonoBehaviour
 {
@@ -12,16 +12,25 @@ public class Earth : MonoBehaviour
 
     //Components
     private Animator animator;
+    private AudioSource audioSource;
 
 
     private void Awake() {
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Update() {
-        if (animator != null) return;
 
-        
+        UpdateChaos();
+
+    }
+
+    private void UpdateChaos(){
+        if (animator == null) return;
+
+        float currChaos = GameManager.instance.Chaos;
+        SetState(currChaos);
     }
 
     //Getters
@@ -29,10 +38,21 @@ public class Earth : MonoBehaviour
 
 
     //Setters
-    public void SetState(EarthState state) { 
-        this.state = state; 
+    public void SetState(float chaos) {
+        if(state == EarthState.Dead) return;
+
+        if(chaos >= 1) state = EarthState.Dead;
+        else if (chaos > .66) state = EarthState.Dying;
+        else if (chaos > .33) state = EarthState.Unhealthy;
+        else state = EarthState.Healthy;
+
+
+        animator.SetInteger("State", (int) state);
     }
 
+    public void PlayDeathSFX(){
+        audioSource.Play();
+    }
 
     
 }
