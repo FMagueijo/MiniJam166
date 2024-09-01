@@ -30,7 +30,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3909054922424693840}
-  - {fileID: 7725249411609665117}
   m_Father: {fileID: 6106195043956891300}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4214068624509328958
@@ -287,75 +286,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.35
---- !u!1 &6731976491880604504
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7725249411609665117}
-  - component: {fileID: 6906966532181432823}
-  m_Layer: 0
-  m_Name: Moon
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7725249411609665117
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6731976491880604504}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4914531834484097535}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6906966532181432823
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6731976491880604504}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 091bc9091f8f7524e829438fbdb9a840, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bDisasterInit: 0
-  bCanTick: 0
-  bForceDisable: 0
-  bDisableTimers: 0
-  startOption: 0
-  exitOption: 0
-  tickStartOption: 0
-  StartTimer: 0
-  TargetStartTimer: 0
-  ExitTimer: 0
-  TargetExitTimer: 0
-  TickStartTimer: 0
-  TargetTickStartTimer: 0
-  TickIntervalTimer: 0
-  TargetTickIntervalTimer: 0
-  PhysicsIntervalTimer: 0
-  TargetPhysicsIntervalTimer: 0
-  chaos: 0
-  minStart: 0
-  maxStart: 0
-  dragForce: 0
-  counterForce: 0
-  coreDistance: 0
-  lastMousePosition: {x: 0, y: 0, z: 0}
-  pivot: {fileID: 0}
 --- !u!1001 &8819912298697378523
 PrefabInstance:
   m_ObjectHideFlags: 0

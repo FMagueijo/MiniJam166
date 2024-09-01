@@ -10,10 +10,10 @@ public class D_Moon : Disaster
     [SerializeField] private float maxStart;
     [SerializeField] private float dragForce;
     [SerializeField] private float counterForce;
+    [SerializeField] private float defaultDistance;
 
 
-
-    [Header("Tornado Stats")]
+    [Header("Moon Stats")]
     [SerializeField] private float coreDistance;
     [SerializeField] private Vector3 lastMousePosition;
 
@@ -21,13 +21,25 @@ public class D_Moon : Disaster
     [SerializeField] private Transform pivot;
 
     private void Awake() {
-        TargetStartTimer = Random.Range(minStart, maxStart);      
+        TargetStartTimer = Random.Range(minStart, maxStart);
+
+        if (pivot == null) return;
+
+        float randomAngle = Random.Range(0, 360);
+        Vector3 axis = new Vector3(0, 0, 1);
+        transform.RotateAround(pivot.position, axis, randomAngle);
+
+        transform.position = pivot.position + transform.up * defaultDistance;
+
+        counterForce *= GameManager.instance.Difficulty;
+        counterForce = Mathf.Clamp(counterForce, 0, dragForce - 1);
     }
 
     public override void Enter()
     {
         base.Enter();
-
+        
+        
     }
 
     public override void Exit()
@@ -38,6 +50,29 @@ public class D_Moon : Disaster
     public override void Tick()
     {
         base.Tick();
+        coreDistance = Vector2.Distance(pivot.position, transform.position);
+
+        if (coreDistance > 0)
+        {
+            transform.position -= transform.up * counterForce * Time.deltaTime;
+        }
+    }
+
+    private void OnMouseDrag()
+    {
+        if (coreDistance >= defaultDistance) return;
+
+        Vector3 mouseDelta = Input.mousePosition - lastMousePosition;
+        Vector3 localDragDirection = transform.InverseTransformDirection(mouseDelta);
+
+        if (localDragDirection.y > 0)
+        {
+            transform.position += transform.up * dragForce * Time.deltaTime;
+            coreDistance = Vector2.Distance(pivot.position, transform.position);
+        }
+
+
+        lastMousePosition = Input.mousePosition;
     }
 
     public override void PhysicsTick()
@@ -50,10 +85,12 @@ public class D_Moon : Disaster
         return base.GetChaos();
     }
 
-
-    private void OnTriggerEnter(Collider other) {
-        if(other.gameObject.GetComponent<Earth>()){
+    private void OnTriggerEnter2D(Collider2D other) {
+        if (other.gameObject.GetComponent<Earth>())
+        {
             GameManager.instance.Die();
+            Destroy(gameObject);
         }
     }
+
 }

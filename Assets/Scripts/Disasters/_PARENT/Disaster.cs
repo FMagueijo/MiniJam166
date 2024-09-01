@@ -16,6 +16,7 @@ public abstract class Disaster : MonoBehaviour
     [SerializeField] public bool bCanTick = false;
     [SerializeField] public bool bForceDisable = false;
     [SerializeField] public bool bDisableTimers = false;
+    [SerializeField] public bool bDontDestroyOnDie = false;
 
 
     [Header("Events Options")]
@@ -46,7 +47,7 @@ public abstract class Disaster : MonoBehaviour
     [SerializeField, Min(0)] protected float TargetPhysicsIntervalTimer;
 
     [Header("Disaster Stats")]
-    [SerializeField, Min(0), ReadOnly] private float chaos;
+    [SerializeField, Min(0), ReadOnly] protected float chaos;
 
     private void Start()
     {

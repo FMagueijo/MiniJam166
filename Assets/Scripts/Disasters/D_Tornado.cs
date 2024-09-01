@@ -15,6 +15,7 @@ public class D_Tornado : Disaster
 
     [Header("Tornado Stats")]
     [SerializeField] private float coreDistance;
+    [SerializeField] private float tornadoChaos;
     [SerializeField] private Vector3 lastMousePosition;
 
     [Header("Tornado Components")]
@@ -26,6 +27,10 @@ public class D_Tornado : Disaster
     {
         animator = GetComponent<Animator>();
         TargetTickIntervalTimer = 0;
+        
+        if(pivot == null){
+            pivot = transform.parent.transform;
+        }
     }
 
     public override void Enter()
@@ -92,6 +97,7 @@ public class D_Tornado : Disaster
 
     private void Die()
     {
+        chaos = tornadoChaos = 0;
         bSpawned = false;
         animator.SetInteger("State", 0); // Death Animation
         RespawnTime();
@@ -111,6 +117,7 @@ public class D_Tornado : Disaster
 
     public override float GetChaos()
     {
-        return base.GetChaos();
+        if(bSpawned) tornadoChaos += .3f * GameManager.instance.Difficulty * Time.deltaTime;
+        return tornadoChaos;
     }
 }
