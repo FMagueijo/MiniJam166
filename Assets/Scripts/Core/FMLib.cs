@@ -46,15 +46,16 @@ namespace FMLib
         
         public class FMSceneManagement {
             public static string[] GetAllScenesNames(){
-                var _scenes = EditorBuildSettings.scenes;
-                string[] scenes = new string[_scenes.Length];
-                
-                for (int i = 0; i < scenes.Length; i++)
-                {
-                    scenes[i] = System.IO.Path.GetFileNameWithoutExtension(_scenes[i].path);
-                }
+                // var _scenes = EditorBuildSettings.scenes;
+                // string[] scenes = new string[_scenes.Length];
 
-                return scenes;
+                // for (int i = 0; i < scenes.Length; i++)
+                // {
+                //     scenes[i] = System.IO.Path.GetFileNameWithoutExtension(_scenes[i].path);
+                // }
+
+                // return scenes;
+                return null;
             }
 
             public static void LoadSceneInstant(string s){
@@ -63,27 +64,5 @@ namespace FMLib
         }
     }
 
-    namespace FMAttributes
-    {
-        public class ReadOnlyAttribute : PropertyAttribute { }
-        [CustomPropertyDrawer(typeof(ReadOnlyAttribute))]
-        public class ReadOnlyDrawer : PropertyDrawer
-        {
-            public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
-            {
-                // Save the current GUI enabled state
-                bool wasEnabled = GUI.enabled;
-
-                // Disable the GUI to make the property readonly
-                GUI.enabled = false;
-
-                // Draw the property field
-                EditorGUI.PropertyField(position, property, label, true);
-
-                // Restore the GUI enabled state
-                GUI.enabled = wasEnabled;
-            }
-        }
-    }
 }
 

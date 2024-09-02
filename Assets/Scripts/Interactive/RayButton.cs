@@ -6,6 +6,7 @@ using UnityEngine.Events;
 public class RayButton : MonoBehaviour
 {
     public bool bClickable = false;
+    public bool bHovering = false;
     public UnityEvent OnClickEvent;
     [Range(0,1)] public float normalAlpha;
     [Range(0, 1)] public float onHoverAlpha;
@@ -21,14 +22,12 @@ public class RayButton : MonoBehaviour
         if (!bClickable) return;
         
         
-            
-
         Vector2 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         RaycastHit2D hit = Physics2D.Raycast(worldPoint, Vector2.zero);
 
         if (hit.collider != null)
         {
-
+            bHovering = true;
             if (Input.GetMouseButtonDown(0))
             {
                 if (hit.collider.gameObject == gameObject)
@@ -37,6 +36,9 @@ public class RayButton : MonoBehaviour
                 }
 
             }
+        }
+        else{
+            bHovering = false;
         }
     }
 

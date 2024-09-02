@@ -12,6 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08bca16f0dab9b64baab99e43ec31897, type: 3}
   m_Name: SOT_Temperature
   m_EditorClassIdentifier: 
-  title: Temperature Control
-  body: aaaaaaaaaaaa
+  title: World Temperature
+  body: "Hello there,\nIt seems to be getting kinda hot in the \"Office\" but we're
+    not sure what it may be causing it. Maybe that newly installed thermostat has
+    something to do with it. \n\nMaybe you should check it out and try to solve the
+    problem --anyways, my coffee just got frozen i'll just wait for it to warm back
+    up.\n\n[Use the Thermostat Controls to regulate the temperature]\n\nYour's dearly,\nJorge,
+    EDD Minister"
   image: {fileID: 21300000, guid: a4a8f72acb36cdb469fe40869563bfca, type: 3}

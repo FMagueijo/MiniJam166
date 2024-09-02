@@ -51,10 +51,15 @@ public class D_Moon : Disaster
     {
         base.Tick();
         coreDistance = Vector2.Distance(pivot.position, transform.position);
+        
+        transform.RotateAround(pivot.position, new Vector3(0,0,1), 15f * Time.deltaTime);
 
         if (coreDistance > 0)
         {
-            transform.position -= transform.up * counterForce * Time.deltaTime;
+            Vector3 direction = pivot.position - transform.position;
+
+            transform.position += direction.normalized * counterForce * Time.deltaTime;
+            
         }
     }
 
@@ -67,6 +72,8 @@ public class D_Moon : Disaster
 
         if (localDragDirection.y > 0)
         {
+            Vector3 direction = pivot.position - transform.position;
+
             transform.position += transform.up * dragForce * Time.deltaTime;
             coreDistance = Vector2.Distance(pivot.position, transform.position);
         }

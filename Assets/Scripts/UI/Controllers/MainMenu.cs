@@ -27,7 +27,7 @@ public class MainMenu : MonoBehaviour
     }
 
     public void GotoItch(){
-        Application.OpenURL("https://fmag.itch.io/");
+        Application.OpenURL("https://fmag.itch.io/earth-defense-department");
     }
 
     public void Exit()

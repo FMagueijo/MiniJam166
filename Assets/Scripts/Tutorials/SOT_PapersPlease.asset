@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08bca16f0dab9b64baab99e43ec31897, type: 3}
+  m_Name: SOT_PapersPlease
+  m_EditorClassIdentifier: 
+  title: Papers please
+  body: "Greetings comrade,\nSo listen up, boys, earth destruction will be the second
+    worst thing that happens to you today. \n\nA Spy has breached our defenses...
+    And worst of all, he could be any one of us. He could be in this very room! He
+    could be you. He could be me!\n\nHe's blocking the window with some sort of propaganda
+    and random post-its, we don't know for sure what its about, but we need to take
+    'em down.\n\n[Click the papers on the window to remove them]\n\nGlory to EDD,\nJorge,
+    EDD Minister"
+  image: {fileID: 21300000, guid: 9abce2325cdd1414c8b51745640ad991, type: 3}

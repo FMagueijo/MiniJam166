@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: SOT_Basic
   m_EditorClassIdentifier: 
   title: Welcome to the Earth Defense Department
-  body: "Morning!\nWelcome aboard. Just another day at the Earth Defense Department.\nToday
+  body: "Morning!\nWelcome aboard. Just another day at the Earth Defense Department.\n\nToday
     you'll be resposible for protecting Earth. Don\u2019t forget to read the intructions
     given to you, to help defend Earth out of harms way, be sure to also keep an
     eye on the Chaos Meter\u2014apparently, it\u2019s important. Let\u2019s get through
-    this, one coffee at a time.\n\nGood Luck, \nJorge, Ministry of EDD"
+    this, one coffee at a time.\n\nGood Luck, \nJorge, EDD Minister"
   image: {fileID: 21300000, guid: 3a87df0103da10645845358520e82e4a, type: 3}

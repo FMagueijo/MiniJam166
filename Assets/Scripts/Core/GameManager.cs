@@ -15,6 +15,8 @@ public enum FTutorials
     Tornado = 1 << 2,
     Moon = 1 << 3,
     Meteor = 1 << 4,
+    FunnyButton = 1 << 5,
+    PapersPlease = 1 << 6,
 
     //TODO: Add as we create more tutorials
 };
@@ -25,6 +27,8 @@ public enum FTutorials
     Tornado = 1 << 1,
     Moon = 1 << 2,
     Meteor = 1 << 3,
+    FunnyButton = 1 << 4,
+    PapersPlease = 1 << 5,
 
     //TODO: Add as we create more disasters
 };
@@ -38,7 +42,7 @@ public class GameManager : MonoSingleton<GameManager>
     [SerializeField, Range(0,1)] private float chaosMeter = 0;
     [SerializeField, Range(0, 1)] private float chaosDec = .025f;
     [SerializeField, Range(0, 1)] private float chaosAdd = .1f;
-    [SerializeField, Min(1)] private float difficulty = 1;
+    [SerializeField, Min(1)] private float difficulty = .7f;
 
     [Header("Timers")]
     public float endTimer = 0;
@@ -78,6 +82,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     public void StartDay()
     {
+        timeLeft = Mathf.Min(25 * (difficulty + .3f), 210); 
         bDisasterOn = true;
         bDayActive = true;
         bAlive = true;
@@ -117,6 +122,10 @@ public class GameManager : MonoSingleton<GameManager>
         }
     }
 
+    public void AddChaos(float x){
+        chaosMeter += x;
+    }
+
     public void TickDay(){
         
         if(chaosMeter >= 1){
@@ -144,9 +153,9 @@ public class GameManager : MonoSingleton<GameManager>
 
         
         daysPassed++;
-        difficulty += .3f;
-        timeLeft = 90;
-        
+        difficulty += .15f;
+        timeLeft = Mathf.Min(25 * (difficulty + .3f), 210);
+
 
         SceneManager.LoadSceneAsync(1);
         Time.timeScale = 1f;
@@ -158,8 +167,8 @@ public class GameManager : MonoSingleton<GameManager>
 
 
         daysPassed++;
-        difficulty += .3f;
-        timeLeft = 90;
+        difficulty += .15f;
+        timeLeft = Mathf.Min(25 * difficulty, 210);
 
 
         SceneManager.LoadSceneAsync(1);
@@ -219,6 +228,7 @@ public class GameManager : MonoSingleton<GameManager>
     public float Chaos => chaosMeter;
     public float Difficulty => difficulty;
     public bool IsAlive => bAlive;
+    public bool IsGameActive => bDayActive;
 
     public FEarthDisasters UnlockedDisasters => unlockedDisasters;
     public FTutorials UnlockedTutorials => unlockedTutorials;

@@ -12,6 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08bca16f0dab9b64baab99e43ec31897, type: 3}
   m_Name: SOT_Moon
   m_EditorClassIdentifier: 
-  title: Moon
-  body: aaaaaaaaaaaa
+  title: Quirky Moon
+  body: 'Greetings!
+
+    Uh, let''s see. It appears a new disaster is aproaching.
+
+
+    Blah,
+    blah, blah. Now that might sound bad, I know, but it''s just the Moon here that
+    gets a bit quirky at night, but do I blame it? No. If I were forced to rotate
+    around a stupid rock for millions of years and I never got to have some kind
+    of vacation? I''d probably be a bit irritable at night too.
+
+
+    [Drag the moon
+    away from Earth to prevent a possible impact]
+
+
+    Your freaky boss,
+
+    Jorge,
+    EDD Minister'
   image: {fileID: 21300000, guid: 1e600d7faabe5614089d139a4e1d22a8, type: 3}
