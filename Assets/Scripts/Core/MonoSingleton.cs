@@ -24,6 +24,8 @@ public abstract class MonoSingleton<T> : MonoBehaviour where T : MonoSingleton<T
                     bInit = true;
                     _instance.Init();
                 }
+
+                DontDestroyOnLoad(_instance.gameObject);
             }
 
             return _instance;
@@ -44,6 +46,7 @@ public abstract class MonoSingleton<T> : MonoBehaviour where T : MonoSingleton<T
 
         if (!bInit)
         {
+            Debug.Log("Not destroying");
             DontDestroyOnLoad(gameObject);
             bInit = true;
             _instance.Init();
@@ -62,6 +65,13 @@ public abstract class MonoSingleton<T> : MonoBehaviour where T : MonoSingleton<T
         else
         {
             DestroyImmediate(this);
+        }
+    }
+
+    public static void ClearInstance(){
+        if (_instance != null){
+            DestroyImmediate(_instance.gameObject);
+            _instance = null;
         }
     }
 

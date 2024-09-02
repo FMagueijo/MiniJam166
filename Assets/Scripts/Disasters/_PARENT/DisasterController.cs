@@ -14,7 +14,9 @@ public class DisasterController : MonoBehaviour
     [Header("Tutorial")]
     [SerializeField] private bool bTutorial = true;
     [SerializeField] private FTutorials tutorial;
-    [SerializeField] private GameObject tutorialGameObject;
+    [SerializeField] private TutorialController ttcc;
+    [SerializeField] private SOTutorial tutorialLoad;
+
 
     [Header("Events")]
     [SerializeField] private UnityEvent OnEnableEvent;
@@ -25,7 +27,7 @@ public class DisasterController : MonoBehaviour
         
         gameObject.SetActive(CanEnable());
 
-        if (CanEnable()) CheckTutorial();
+        if (CanEnable()) CallTutorial();
     }
 
     public bool CanEnable(){
@@ -35,12 +37,12 @@ public class DisasterController : MonoBehaviour
     }
 
     private bool CheckDisaster(){
-        foreach (FEarthDisasters dis in Enum.GetValues(typeof(FEarthDisasters)))
-        {
-            if (reqDisaster != FEarthDisasters.None && (GameManager.instance.UnlockedDisasters & reqDisaster) == reqDisaster) return true;
-        }
-        
-        return false;
+        return (GameManager.instance.UnlockedDisasters & reqDisaster) == reqDisaster;
+    }
+
+    private bool CheckTutorial()
+    {
+        return (GameManager.instance.UnlockedTutorials & tutorial) == tutorial;
     }
 
     private void OnEnable() {
@@ -51,22 +53,17 @@ public class DisasterController : MonoBehaviour
         OnDisableEvent.Invoke();
     }
 
-    public void CheckTutorial(){
+    public void CallTutorial(){
         if (!bTutorial) return;
-
-        foreach (FTutorials tutorial in Enum.GetValues(typeof(FTutorials)))
-        {
-            if (tutorial != FTutorials.None && (GameManager.instance.UnlockedTutorials & tutorial) == tutorial)
-            {
-                return;
-            }
-        }
-
-        GameManager.instance.AddTutorial(tutorial);
-        ShowTutorial();
-    }
-
-    private void ShowTutorial(){
         
+        if (ttcc == null) return;
+
+        if (!CheckTutorial())
+        {
+            ttcc.AddToQueue(tutorialLoad);
+            GameManager.instance.AddTutorial(tutorial);
+            ttcc.gameObject.SetActive(true);
+        }
     }
+
 }

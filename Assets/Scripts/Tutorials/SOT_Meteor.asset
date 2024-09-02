@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08bca16f0dab9b64baab99e43ec31897, type: 3}
+  m_Name: SOT_Meteor
+  m_EditorClassIdentifier: 
+  title: Meteor Storm
+  body: "Greetings,\r\nThere's no time for formalities! A METEOR SHOWER is happening
+    TONIGHT! I REPEAT, METEORS are hurdling toward Earth as we speak! We must --wait,
+    is it tonight or tomorrow? Never mind!\r\n\r\nThis could be catastrophic! Potential
+    extinction-level event! Should we evacuate? Should we hide? \n\n\u2014Anyways,
+    forget the meteors for a second; we\u2019ve got deadlines. Yes, the sky might
+    be literally falling, but that\u2019s no excuse for missing the TPS reports!
+    If the world\u2019s ending, we need to end it on a high note\u2014with our best
+    quarter yet!\n\n[Click on the incoming meteors to destroy them]\n\nBack to work,\nJorge,
+    EDD Minister"
+  image: {fileID: 21300000, guid: 77affaa2ffd73fe408fb6d568e2a7d21, type: 3}

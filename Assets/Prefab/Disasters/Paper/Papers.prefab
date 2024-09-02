@@ -1,0 +1,94 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6889498325676549948
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6318047820377944624}
+  - component: {fileID: 1981453384171568526}
+  - component: {fileID: 7510497077532935433}
+  m_Layer: 0
+  m_Name: Papers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6318047820377944624
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6889498325676549948}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1981453384171568526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6889498325676549948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7e324521ec3dec499dbeaecd5d8aafe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reqDisaster: 32
+  bTutorial: 1
+  tutorial: 64
+  ttcc: {fileID: 0}
+  tutorialLoad: {fileID: 11400000, guid: 067163549f553c849bd45ab87e5fc818, type: 2}
+  OnEnableEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDisableEvent:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &7510497077532935433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6889498325676549948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a905971ec20f7af43bcaa1de23a0e299, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bDisasterInit: 0
+  bCanTick: 0
+  bForceDisable: 0
+  bDisableTimers: 0
+  bDontDestroyOnDie: 0
+  startOption: 2
+  exitOption: 0
+  tickStartOption: 1
+  StartTimer: 0
+  TargetStartTimer: 0
+  ExitTimer: 0
+  TargetExitTimer: 0
+  TickStartTimer: 0
+  TargetTickStartTimer: 0
+  TickIntervalTimer: 0
+  TargetTickIntervalTimer: 0
+  PhysicsIntervalTimer: 0
+  TargetPhysicsIntervalTimer: 0
+  chaos: 0
+  papers:
+  - {fileID: 5882756369793833449, guid: 5d2453a4265150d458935e584fd41d94, type: 3}
+  - {fileID: 5882756369793833449, guid: c9671798c2900ac46b27ab14a62e8ee2, type: 3}
+  minArea: {x: -3, y: -2}
+  maxArea: {x: 3, y: 2}

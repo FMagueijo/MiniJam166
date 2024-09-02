@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using FMLib.FMAttributes;
 using UnityEngine;
 
 public abstract class Disaster : MonoBehaviour
@@ -16,6 +15,7 @@ public abstract class Disaster : MonoBehaviour
     [SerializeField] public bool bCanTick = false;
     [SerializeField] public bool bForceDisable = false;
     [SerializeField] public bool bDisableTimers = false;
+    [SerializeField] public bool bDontDestroyOnDie = false;
 
 
     [Header("Events Options")]
@@ -28,25 +28,25 @@ public abstract class Disaster : MonoBehaviour
 
 
     [Header("Events Timers")]
-    [SerializeField, Min(0), ReadOnly] private float StartTimer;
-    [SerializeField, Min(0)] private float TargetStartTimer;
+    [SerializeField, Min(0)] private float StartTimer;
+    [SerializeField, Min(0)] protected float TargetStartTimer;
 
-    [SerializeField, Min(0), ReadOnly] private float ExitTimer;
-    [SerializeField, Min(0)] private float TargetExitTimer;
+    [SerializeField, Min(0)] private float ExitTimer;
+    [SerializeField, Min(0)] protected float TargetExitTimer;
 
-    [SerializeField, Min(0), ReadOnly] private float TickStartTimer;
-    [SerializeField, Min(0)] private float TargetTickStartTimer;
+    [SerializeField, Min(0)] private float TickStartTimer;
+    [SerializeField, Min(0)] protected float TargetTickStartTimer;
 
 
     [Header("Tick Intervals")]
-    [SerializeField, Min(0), ReadOnly] private float TickIntervalTimer;
-    [SerializeField, Min(0)] private float TargetTickIntervalTimer;
+    [SerializeField, Min(0)] private float TickIntervalTimer;
+    [SerializeField, Min(0)] protected float TargetTickIntervalTimer;
 
-    [SerializeField, Min(0), ReadOnly] private float PhysicsIntervalTimer;
-    [SerializeField, Min(0)] private float TargetPhysicsIntervalTimer;
+    [SerializeField, Min(0)] private float PhysicsIntervalTimer;
+    [SerializeField, Min(0)] protected float TargetPhysicsIntervalTimer;
 
     [Header("Disaster Stats")]
-    [SerializeField, Min(0), ReadOnly] private float chaos;
+    [SerializeField, Min(0)] protected float chaos;
 
     private void Start()
     {
